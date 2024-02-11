@@ -1,3 +1,3 @@
-# My-Portfolio
+# Gabriel's Portfolio
 
-Live demo: https://gabrielcastrov.github.io/My-Portfolio/
+Live demo: https://gabrielcastrov.github.io/portfolio/
