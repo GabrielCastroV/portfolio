@@ -1,0 +1,146 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+import JavaScript from "./icons/JavaScript.astro"
+import Node from "./icons/Node.astro"
+import MongoDB from "./icons/Mongo.astro"
+import ExpressJS from "./icons/ExpressJS.astro"
+import JWT from "./icons/JWT.astro"
+import React from "./icons/React.astro"
+import Vite from "./icons/Vite.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-[#3e230a] text-white",
+    icon: JavaScript,
+  },
+  NODE: {
+    name: "Node.js",
+    class: "bg-[#12240f] text-white",
+    icon: Node,
+  },
+  MONGODB: {
+    name: "MongoDB",
+    class: "bg-[#003618] text-white",
+    icon: MongoDB,
+  },
+  EXPRESS: {
+    name: "Express.js",
+    class: "bg-[#3d3d3d] text-white",
+    icon: ExpressJS,
+  },
+  JWT: {
+    name: "JWT",
+    class: "bg-[#490055] text-white",
+    icon: JWT,
+  },
+  REACT: {
+    name: "React",
+    class: "bg-[#033449] text-white",
+    icon: React,
+  },
+  VITE: {
+    name: "Vite",
+    class: "bg-[#470368] text-white",
+    icon: Vite
+  },
+}
+const PROJECTS = [
+  {
+    title: "EDTécnica Telegram Bot",
+    description:
+      "I developed @edtecnicabot, a Telegram assistant bot and administrative web. It allows students to access course details, make payments, and obtain information with simple commands. The interface efficiently manages module data and payments.",
+    link: "https://t.me/edtecnicabot",
+    github: "https://github.com/GabrielCastroV/edt-telegram-bot",
+    image: "../../public/project-edt.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.NODE, TAGS.MONGODB],
+  },
+  {
+    title: "ContactsApp",
+    description:
+      "ContactsApp is a beautifully designed, responsive web platform. It ensures data security with email verification, while JWT and bcrypt provide robust user authentication and password protection.",
+    link: "https://contactsapp-0514.onrender.com/",
+    github: "https://github.com/GabrielCastroV/ContactsApp",
+    image: "../../public/project-contactsapp.webp",
+    tags: [TAGS.JAVASCRIPT, TAGS.NODE, TAGS.TAILWIND, TAGS.MONGODB, TAGS.EXPRESS, TAGS.JWT],
+  },
+  {
+    title: "Movie Search",
+    description:
+      "Application for searching movies developed using the OMDB movies API. It provides instant results and detailed information about movies, series, and TV shows. With features like real-time search and poster display, it's your perfect companion for discovering the next big hit in cinema.",
+    link: "https://gabrielcastrov.github.io/movie-search/",
+    github: "https://github.com/GabrielCastroV/movie-search",
+    image: "../../public/project-movieSearch.webp",
+    tags: [TAGS.REACT, TAGS.JAVASCRIPT, TAGS.VITE],
+  }
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Project" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105 select-none" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-2 flex-wrap">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 select-none`}
+              >
+                <tag.icon class="size-4"/>
+                {tag.name}
+              </span>
+            </li>
+          ))
+          }
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4 select-none">
+          {github && (
+            <LinkButton href={github}>
+              <GitHub class="size-6" />
+              Code
+              
+            </LinkButton>
+          )}
+          {link && (
+            <LinkButton href={link}>
+              <Link class="size-4" />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+
