@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: gabrielcastrov.github.io/portfolio
+      url: https://gabrielcastrov.github.io/portfolio
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
