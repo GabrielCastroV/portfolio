@@ -1,17 +1,22 @@
 ---
-const personalImageAlt = "command line icon"
-import Badge from "@/components/Badge.astro"
-import LinkedInIcon from "@/components/icons/LinkedIn.astro"
-import MailIcon from "@/components/icons/Mail.astro"
-import SocialPill from "@/components/SocialPill.astro"
+const personalImageAlt = "command line icon";
+import Badge from "@/components/Badge.astro";
+import LinkedInIcon from "@/components/icons/LinkedIn.astro";
+import MailIcon from "@/components/icons/Mail.astro";
+import SocialPill from "@/components/SocialPill.astro";
+import GitHub from "./icons/GitHub.astro";
+import { Image } from "astro:assets";
 ---
 
 <div class="max-w-xl">
   <div class="flex gap-4 mb-4 select-none">
-    <img
-      class="rounded-full shadow-lg size-12 bg-[#f9f9fa] dark:bg-[#cfe5f8] p-3 bg-c"
-      src="https://i.ibb.co/6ZhsYMZ/code.png"
+    <Image
+      class="rounded-full shadow-lg size-12 bg-[#f9f9fa] dark:bg-zinc-50 p-3 bg-c"
+      src="/code.png"
       alt={personalImageAlt}
+      width={120}
+      height={100}
+      loading={"eager"}
     />
     <a
       href="https://linkedin.com/in/gabrielcastrov"
@@ -30,7 +35,10 @@ import SocialPill from "@/components/SocialPill.astro"
   <p
     class="mt-6 text-xl text-gray-800 dark:[&>strong]:text-yellow-200 [&>strong]:text-yellow-500 [&>strong]:font-semibold dark:text-gray-300"
   >
-  <strong>Full Stack Web Developer</strong> who is passionate about my work and constantly looking for new knowledge. My main goal is to help improve and fix code related issues. I have the ability to work on both the front-end and back-end sides of an application
+    <strong>Full Stack Web Developer</strong> who is passionate about my work and
+    constantly looking for new knowledge. My main goal is to help improve and fix
+    code related issues. I have the ability to work on both the front-end and back-end
+    sides of an application
   </p>
   <nav class="flex flex-wrap gap-4 mt-8 select-none">
     <SocialPill href="mailto:gabrielenriquecas@gmail.com">
@@ -40,6 +48,10 @@ import SocialPill from "@/components/SocialPill.astro"
     <SocialPill href="https://linkedin.com/in/gabrielcastrov">
       <LinkedInIcon class="size-4" />
       LinkedIn
+    </SocialPill>
+    <SocialPill href="https://github.com/GabrielCastroV">
+      <GitHub class="size-4" />
+      Github
     </SocialPill>
   </nav>
 </div>
